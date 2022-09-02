@@ -27,6 +27,14 @@ jobs:
     - uses: borales/actions-yarn@v3.0.0
       with:
         cmd: build
+    # 打包镜像推送到阿里云容器镜像服务
+    - name: Build the Docker image
+    - run: |
+        docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
+        docker build -t github-action:latest .
+        docker tag github-action registry.cn-hangzhou.aliyuncs.com/chase-test/github-action:latest
+        docker push registry.cn-hangzhou.aliyuncs.com/chase-test/github-action:latest
+    
 #      uses: actions/setup-node@v3
 #      with:
 #        node-version: ${{ matrix.node-version }}
