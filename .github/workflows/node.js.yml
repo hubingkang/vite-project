@@ -20,7 +20,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - name: checkout
     - uses: actions/checkout@v3
+    - name: GitHub Action for Yarn
     - uses: borales/actions-yarn@v3.0.0
       with:
         cmd: install
