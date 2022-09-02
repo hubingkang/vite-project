@@ -24,14 +24,14 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
     - name: GitHub Action for Yarn
     - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: build # will run `yarn build` command
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: test # will run `yarn test` command
+      with:
+        cmd: install # will run `yarn install` command
+    - uses: borales/actions-yarn@v3.0.0
+      with:
+        cmd: build # will run `yarn build` command
+    - uses: borales/actions-yarn@v3.0.0
+      with:
+        cmd: test # will run `yarn test` command
 #      uses: actions/setup-node@v3
 #      with:
 #        node-version: ${{ matrix.node-version }}
